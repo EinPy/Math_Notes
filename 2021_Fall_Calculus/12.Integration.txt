@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+
+
+\title{Endim notes}
+\author{Einar Wilhelm Bratthall}
+\date{November 2021}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Definitions:
+\begin{tcolorbox}
+
+En function F kalles en primitiv function til f på intervallet I om:
+\begin{align}
+F'(x) &= f(x) & x \in I
+\end{align}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}
+
+Assume F a primitive function to f, then all primitive functions G \\
+to F can be written on the form G(x) = F(x) + C for some constant C
+
+\end{tcolorbox}
+
+Elementæra primitive functioner:
+\[
+\int e^x \,dx = e^x+ C
+\]
+\[
+\int \frac{1}{x} \,dx = ln |x|+ C
+\]
+\[
+\int x^a \,dx = \frac{x^{a +1}}{a+1}+ C,   (a != -1)
+\]
+\[
+\int cos(x) \,dx = sin (x)+ C
+\]
+\[
+\int sin(x) \,dx = -cos(x)+ C
+\]
+\[
+\int \frac{1}{cos^2(x)} \,dx = tan(x)+ C
+\]
+\[
+\int \frac{1}{sin^2(x)} \,dx = -cot(x)+ C
+\]
+\[
+\int \frac{1}{\sqrt{1-x^2}} \,dx = arcsin(x)+ C
+\]
+\[
+\int \frac{1}{1+x^2} \,dx = arctan(x)+ C
+\]
+extra:
+\[
+\int \frac{1}{\sqrt{x^2+a}} \,dx = ln |x + \sqrt{x^2+a}| + C
+\]
+
+
+
+Calculation rules:
+\[
+\int cf(x) \,dx = c \int f(x) \,dx,
+\]
+\[
+\int f(x) + g(x) \,dx = \int f(x) \,dx + \int g(x) \,dx
+\]
+
+
+Calculation methods:\\
+Variabelbyte
+\begin{tcolorbox}
+
+A case it is important to remember is when the integral is a product of
+a function and it inner derivative: f(g(x) * g'(x) 
+
+\[
+\int f(g(x)) * g'(x) \,dx = F(g(x)) + C
+\]
+
+\end{tcolorbox}
+
+example:
+\[
+\int 2x \, e^{x^2} \,dx = 
+\begin{bmatrix} t = x^2 \\
+\frac{dt}{dx} = 2x \implies dt = 2x \,dx\end{bmatrix}
+\]
+\[
+= \int e^t \, dt = e^t + C = e^{x^2} + C
+\]
+\end{document}
