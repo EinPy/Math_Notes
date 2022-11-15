@@ -1,0 +1,105 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+
+\title{Mathematical statistics and probability}
+\author{Einar Wilhelm Bratthall}
+\date{January 2022}
+
+\begin{document}
+
+\maketitle
+
+\section{Innledning til sannolikhetsteorin}
+\section{Sannolikhetstorins grunder}
+\section{Endimensionella stokastiska variabler}
+\section{Flerdimensinoaella stokastiska variabler}
+\section{Expected value}
+\section{Normal distribution}
+\section{Binomial distribution}
+\section{Random numbers and simulation}
+\section{Introduction to statistical theory}
+\section{Descriptive statistics}
+\section{Point approximation}
+    This is a common thing in daily life, for instance, you approximate someones
+    age by how they look. 
+    \subsection{Political survey example}
+        You can approximate the opionons of a population by asking a small sample.
+        Lets say you ask 1000 people and  $x = 350$ say yes to a yes and no question.
+        $P_{obs}^* = 350/1000$. This would be $Hyp(N, 1000, p)$ but as N is very large
+        (5 million) it can be approximated with $Bin(1000,p)$.\\
+
+        $p^* = X/1000$ where X is the count of YES and X is Bin(1000,p).
+        \[
+            E(p^*) = E(\frac{X}{1000}) = \frac{E(X)}{1000} = p \\
+        \]
+        \[
+            V(p*) = V(\frac{X}{1000}) = \frac{V(X)}{1000^2} = 
+            \frac{p(1-p)}{1000}
+        \]
+        \[
+            D(p^*) = \sqrt{V(X)}
+        \]
+        Inserting the values gives a standard deviation of 1.5 percent
+    \subsection{General formula}
+        The goal with a point approximation is to apprixmate a paramter $\theta$. 
+        We find $\theta$ by obesrvations $x_i$ are events from the s.v $X_i$. 
+        $\theta^*$ will change with each set of $\theta_{obs}^*$, in fact
+        each $\theta_{obs}^*$ is an outcome of $\theta^*$. The definition is a bit
+        circular, as each $X_i$ depens on $\theta^*$. 
+
+        \begin{tcolorbox}
+
+            Definition: a point approximation $\theta_{obs}^*$ is said to be
+            "väntevärdesriktig" if 
+            \[
+                E(\theta^*) = \theta \;\;\forall \;\;\theta \in \Omega_{\Theta}
+            \]
+            where $\Omega_{\Theta}$ is "utfallsrummet". 
+
+        \end{tcolorbox}
+        When the sample size $n \to \infty$:  $\theta_{obs}^* \to \theta$
+        \begin{tcolorbox}
+
+            Definition: "Medelvärdekvadratfelet" MSE is
+            \[
+                MSE = E((\theta^* - \theta)^2)
+            \]
+            where $\theta^*$ is the "stickprovsvariabel" and the systematic
+            error is    $E(\theta^*) - \theta$
+
+
+        \end{tcolorbox}
+    \subsection{Approximating expected value variance}
+        One can approximate $\mu$ with $\mu_{obs}^* = \overline{x}.$\\
+        Approximating the variance can be done by the formula
+        \[
+            (\sigma^2)_{obs}^* = s^2 = \frac{1}{n-1} \sigma_{i=1}^n (x_i - \overline{x})^2.  
+        \]
+        Both of these are "väntevärdesriktig"
+    \subsection{Maximum-likelihood-method}
+        X is poisson fördelad
+        \[
+            X \in Po(\mu)    
+        \]
+        \[
+            p_x(k) = \frac{\mu^k}{k!}e^{-\mu}
+        \]
+        
+        It seems to be to simply calcualte the probability of your data, and 
+        maximize that probabiliy based on a standard model. If we have 2 poisson
+        phone calls $X_1, X_2= 10, 12$ and they are independent $Po(\theta)$
+        then their probabily is 
+        \[
+            P(X_1 = 10, X_2 = 12) = \frac{\theta^{10}}{10!}e^{-\theta}*\frac{\theta^{12}}{12!}e^{-\theta} = \frac{\theta^{10+12}}{10!12!}e^{-2\theta}
+        \]
+        the $\theta$ that gives the maximal p is the solution. In this case it can easily
+        be shown that it is $\theta_{obs}^* = \overline{x}$
+        A good technique can be to use "logaritmering" and the take the derivative and solve for 0.
+    \subsection{Smallest-Square-Method}
+        
+\section{Interval approximation}
+\section{Testing hypothesis}
+\section{Regression analysis}
+\end{document}

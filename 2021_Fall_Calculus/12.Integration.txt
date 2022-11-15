@@ -74,8 +74,8 @@ Calculation rules:
 \]
 
 
-Calculation methods:\\
-Variabelbyte
+\textbf{Calculation methods:}\\
+\textbf{Varibelbyte:}
 \begin{tcolorbox}
 
 A case it is important to remember is when the integral is a product of
@@ -87,13 +87,56 @@ a function and it inner derivative: f(g(x) * g'(x)
 
 \end{tcolorbox}
 
-example:
+example 1:
 \[
 \int 2x \, e^{x^2} \,dx = 
 \begin{bmatrix} t = x^2 \\
-\frac{dt}{dx} = 2x \implies dt = 2x \,dx\end{bmatrix}
+\frac{dt}{dx} = 2x \implies dt = 2x \,dx
+\end{bmatrix}
 \]
 \[
 = \int e^t \, dt = e^t + C = e^{x^2} + C
 \]
+
+
+\textbf{Partial Integration}
+\begin{tcolorbox}
+
+This is useful for finding the primitive to a product of two functions. 
+It can be executred using this formula:
+
+\[
+\int f(g(x)) * g(x) \,dx = F(x)*g(x) - \int F(x) * g'(x) \,dx
+\]
+
+\end{tcolorbox}
+
+example: 
+\[
+\int x \, cos x \, dx
+\]
+Here one can see that it is preferable to choose x as g. 
+Because when one takes the derivative of it it will "dissapear"
+Note that the integral of cos(x) = sin(x)
+\[
+\int x \, cos x \, dx = x \, sin x - \int 1 \, sin x \, dx 
+= x \, sin x - (- cos x) + C
+\]
+\[
+= x \, sin x + cos x + C
+\]
+Note that a knarly "trikk" as they say in sweeden. Is that wherever you wish
+you can add * 1 to any expression. This is useful in a lot of cases working with
+partial integration:
+\[
+\int lnx \, dx = \int 1 * lnx \, dx = x \, lnx - \int x * \frac{1}{x} \, dx
+\]
+\[
+x \, ln x - x + C = x(1-lnx) + C
+\]
+
+Sometimes partial integration twice can be useful although it does not yield
+a clear answer. 
+
+
 \end{document}
