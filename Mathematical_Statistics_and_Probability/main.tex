@@ -75,9 +75,24 @@
         One can approximate $\mu$ with $\mu_{obs}^* = \overline{x}.$\\
         Approximating the variance can be done by the formula
         \[
-            (\sigma^2)_{obs}^* = s^2 = \frac{1}{n-1} \sigma_{i=1}^n (x_i - \overline{x})^2.  
+            (\sigma^2)_{obs}^* = s^2 = \frac{1}{n-1} \Sigma_{i=1}^n (x_i - \overline{x})^2.  
         \]
-        Both of these are "väntevärdesriktig"
+        \[
+            V(\mu^*) = \frac{\sigma^2}{n}
+        \]
+        Both of these are "väntevärdesriktig"\\
+        Example:\\\\
+
+
+        Given s.v. X with some $E(X) = \mu = \theta$ and some $\sigma$
+        that's unknown. We know the number of trials N, $\overline{x}$ and s.
+        We can rewrite this as
+        \[
+            D(X) = \sqrt{V(X)} = \sqrt{V(\mu*)} = \sqrt{\frac{\sigma^2}{N}}
+            = \sqrt{\frac{s^2}{N}}
+        \]
+        
+        
     \subsection{Maximum-likelihood-method}
         X is poisson fördelad
         \[
@@ -98,8 +113,48 @@
         be shown that it is $\theta_{obs}^* = \overline{x}$
         A good technique can be to use "logaritmering" and the take the derivative and solve for 0.
     \subsection{Smallest-Square-Method}
-        
+        We have $X_I$ describing $x_i$ with known expected value functions only dependent on 
+        one paramater. $E(X_i) = \mu_i(\theta) + \epsilon_i$ where $\epsilon$
+        descirbes the error from given experimetn. Then minimizing the function
+        \begin{equation}
+            Q(\theta) = \Sigma_{i=1}^{n} (x_i - \mu_i(\theta))^2
+        \end{equation}
+        gives the MK-approximation for the s.v. This value is called $\theta_{obs}^*$
+        If all functions $\mu_i(\theta)$ are equal Q will be minimized when 
+        $\mu(\theta) = \overline{x}$ giving. $\theta_{obs}^* = \mu^{-1}(\overline{x})$
+        The more general method is solving
+        \begin{equation}
+            \frac{dQ(\theta)}{d\theta} = \sum....
+        \end{equation}
+    \subsection{Tillämpning på normalfördelningen}
 \section{Interval approximation}
+    Insead of directly approximation the expected value, one can give an interval
+    with some probability that the expected value lies within this interval.
+    It is best shown in an example:\\
+    Lets say you measure something with unknown $E(X) = \theta$ and get the
+    approximation x. The measurement error is $N(0,\sigma)$ and $\sigma$ is known.
+    Then x is an obesrvation of X where $X \in N(\theta, \sigma)$, here 
+    an interval can be found with some probability. For instance with 95 percent confidence.
+    \[\theta - 1.96\sigma < X < \theta + 1.96\sigma\]
+    or
+    \[X - 1.96\sigma < \theta < X + 1.96\sigma\]
+    The interval becomes $I_{\theta} = (x - 1.96\sigma, x+1.96\sigma)$
+    
+    In some examples prorperties from chapter 6 are very useful here. 
+
+    \begin{tcolorbox}
+
+        If $X_i$ is independent $N(\mu,\sigma)$ and $\overline{X}$ is known then
+
+        \[
+            \overline{X} \in N(\mu, \frac{\sigma}{\sqrt{N}})
+        \]
+
+    \end{tcolorbox}
+
+    \subsection{Tillämpad på normalfördelningen}
+
 \section{Testing hypothesis}
+    We have a hypotheiss and we are looking to test it. 
 \section{Regression analysis}
 \end{document}
